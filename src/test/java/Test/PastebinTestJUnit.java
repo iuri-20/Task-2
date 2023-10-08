@@ -6,7 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import page.PastebinPage;
 
 import java.util.concurrent.TimeUnit;
@@ -18,9 +17,7 @@ public class PastebinTestJUnit {
 
     @Before
     public void setUp() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--headless");
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver();
         pastebinPageObj = new PastebinPage(driver);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         pastebinPageObj.openPage("https://pastebin.com");
